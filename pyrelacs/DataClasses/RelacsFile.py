@@ -255,7 +255,6 @@ def subkey_field_match(d, selection):
         return True
 
 def exact_nested_field_match(d, selection):
-
     for k, v in selection.iteritems():
         try:
             v2 = get_nested_value(d,k)
