@@ -199,7 +199,10 @@ def relacs_file_factory(obj, mergetrials=False):
     for p, _, _ in obj.content:
         for f in fields:
             try:
-                obj.fields[f].add(get_nested_value(p, f))
+                tmp = get_nested_value(p, f)
+                if type(tmp) == list:
+                    tmp = tuple(tmp)
+                obj.fields[f].add(tmp)
             except KeyError:
                 pass
 
